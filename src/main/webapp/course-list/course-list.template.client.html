@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="course-list.stylesheet.client.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="navbar-header">
+                <a href="#">
+                    <i class="fas fa-bars wbdv-field wbdv-hamburger"></i>
+                </a>
+                <a class="navbar-brand wbdv-label wbdv-course-manager" href="#">Course Manager</a>
+            </div>
+        </nav>
+
+        <div class="col-12">
+            <div class="row wbdv-add-course-row">
+                <form>
+                    <div class="form-group row">
+                        <label for="courseName" class="col-4 col-form-label">
+                            Add course </label>
+                        <div class="col-7">
+                            <input class="form-control wbdv-field wbdv-new-course" id="courseName" placeholder="Enter course name">
+                        </div>
+
+                        <div class="col-1">
+                            <a class="wbdv-button wbdv-add-course" href="#"><i class="fas fa-plus-circle fa-2x pt-1"></i></a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="wbdv-header wbdv-title" scope="col">Title</th>
+                            <th class="wbdv-header wbdv-owner" scope="col">Owned by</th>
+                            <th class="wbdv-header wbdv-last-modified" scope="col">Date modified</th>
+                            <th class="wbdv-header wbdv-actions scope=col">
+                                <div class="row">
+                                    <div class=>
+                                        <a class="wbdv-button wbdv-grid-layout action-button" href="#"><i class="fas fa-th-large fa-2x pt-1"></i></a>
+                                    </div>
+                                    <div>
+                                        <a class="wbdv-button wbdv-list-layout action-button" href="#"><i class="fas fa-grip-lines fa-2x pt-1"></i></a>
+                                    </div>
+                                    <div>
+                                        <a class="wbdv-header wbdv-sort action-button" href="#"><i class="fas fa-sort-alpha-up fa-2x pt-1"></i></a>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="wbdv-row wbdv-course">
+                            <th scope="row">
+                                <a class="wbdv-row wbdv-title" href="../course-editor/course-editor.template.client.html">CS4550 - Web</a></th>
+                            <td class="wbdv-row wbdv-owner">Mark</td>
+                            <td class="wbdv-row wbdv-modified-date">15 Jul 2020</td>
+                            <td wbdv-row>
+                                <a class="wbdv-row wbdv-button wbdv-delete" href=#><i class="fas fa-times fa pt-1 wbdv-row wbdv-button wbdv-delete"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="wbdv-row wbdv-course">
+                            <th scope="row">
+                                <a class="wbdv-row wbdv-title" href="../course-editor/course-editor.template.client.html">CS3095 - Computing</a></th>
+                            <td class="wbdv-row wbdv-owner">Jacob</td>
+                            <td class="wbdv-row wbdv-modified-date">01 Jan 2050</td>
+                            <td wbdv-row>
+                                <a class="wbdv-row wbdv-button wbdv-delete" href=#><i class="fas fa-times fa pt-1 wbdv-row wbdv-button wbdv-delete"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="wbdv-row wbdv-course">
+                            <th scope="row"><a class="wbdv-row wbdv-title" href="../course-editor/course-editor.template.client.html">CS3943 - AI</a>
+                            </th>
+                            <td class="wbdv-row wbdv-owner">Larry</td>
+                            <td class="wbdv-row wbdv-modified-date">05 Dec 1967</td>
+                            <td wbdv-row>
+                                <a class="wbdv-row wbdv-button wbdv-delete" href=#><i class="fas fa-times fa pt-1 wbdv-row wbdv-button wbdv-delete"></i></a>
+                            </td>
+                        </tr>
+
+                        <tr class="wbdv-row wbdv-course">
+                            <th scope="row"><a class="wbdv-row wbdv-title" href="../course-editor/course-editor.template.client.html">CS9438 - Stuff</a>
+                            </th>
+                            <td class="wbdv-row wbdv-owner">Ted</td>
+                            <td class="wbdv-row wbdv-modified-date">11 Feb 2017</td>
+                            <td wbdv-row>
+                                <a class="wbdv-row wbdv-button wbdv-delete" href=#><i class="fas fa-times fa pt-1 wbdv-row wbdv-button wbdv-delete"></i></a>
+                            </td>
+                        </tr>
+
+                        <tr class="wbdv-row wbdv-course">
+                            <th scope="row"><a class="wbdv-row wbdv-title" href="../course-editor/course-editor.template.client.html">CS4984 -
+                                    Learning</a></th>
+                            <td class="wbdv-row wbdv-owner">Bob</td>
+                            <td class="wbdv-row wbdv-modified-date">06 Jun 1946</td>
+                            <td wbdv-row>
+                                <a class="wbdv-row wbdv-button wbdv-delete" href=#><i class="fas fa-times fa pt-1 wbdv-row wbdv-button wbdv-delete"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
