@@ -1,25 +1,41 @@
 
 package com.example.wbdvsp20cuanfraserserverjava.models;
 
-import com.sun.xml.bind.v2.model.core.ID;
-import org.springframework.data.repository.cdi.Eager;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="topics")
+@Table(name = "topics")
 public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
+    private String description;
 
     @OneToMany(mappedBy = "topic")
     private List<Widget> widgets;
 
+    private String lessonId;
+
     public Integer getId() {
         return id;
+    }
+
+    public String getLessonId() {
+        return lessonId;
+    }
+
+    public void setLessonId(String lessonId) {
+        this.lessonId = lessonId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setId(Integer id) {

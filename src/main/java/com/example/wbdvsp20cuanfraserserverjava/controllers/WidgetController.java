@@ -1,5 +1,6 @@
 package com.example.wbdvsp20cuanfraserserverjava.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.wbdvsp20cuanfraserserverjava.models.Widget;
@@ -22,35 +23,60 @@ public class WidgetController {
     @Autowired
     WidgetService service;
 
-    @PostMapping("/widgets")
-    public Widget createWidget(@RequestBody Widget newWidget) {
-        return service.createWidget(newWidget);
+    @PostMapping("/api/topics/{tid}/widgets")
+    public Widget createWidget(@PathVariable("tid") String tid, @RequestBody Widget newWidget) {
+        try {
+            Integer tidInt = Integer.valueOf(tid);
+            return service.createWidget(tidInt, newWidget);
+        } catch (NumberFormatException e) {
+            return new Widget();
+        }
     }
 
-    @GetMapping("/widgets/{widgetId}")
-    public Widget findWidgetById(@PathVariable("widgetId") Integer wid) {
-        return service.findWidgetById(wid);
+    @GetMapping("/api/topics/{tid}/widgets")
+    public List<Widget> findWidgetsForTopic(@PathVariable("tid") String tid) {
+        try {
+            Integer tidInt = Integer.valueOf(tid);
+            return service.findWidgetsForTopic(tidInt);
+        } catch (NumberFormatException e) {
+            return new ArrayList<Widget>();
+        }
     }
 
-    @GetMapping("/widgets")
+    @PutMapping("/api/widgets/{wid}")
+    public int updateWidget(@PathVariable("wid") String wid, @RequestBody Widget updatedWidget) {
+        try {
+            Integer widInt = Integer.valueOf(wid);
+            return service.updateWidget(widInt, updatedWidget);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    @GetMapping("/api/widgets/{wid}")
+    public Widget findWidgetById(@PathVariable("wid") String wid) {
+        try {
+            Integer widInt = Integer.valueOf(wid);
+            return service.findWidgetById(widInt);
+        } catch (NumberFormatException e) {
+            return new Widget();
+        }
+    }
+
+    @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
         return service.findAllWidgets();
     }
 
-    @DeleteMapping("/widgets/{widgetId}")
-    public int deleteWidget(@PathVariable("widgetId") Integer wid) {
-        return service.deleteWidget(wid);
-    }
-
-    @PutMapping("/widgets/{widgetId}")
-    public int updateWidget(@PathVariable("widgetId") Integer wid, @RequestBody Widget updatedWidget) {
-        return service.updateWidget(wid, updatedWidget);
-    }
-
-    @GetMapping("/topics/{tid}/widgets")
-    public List<Widget> findWidgetsForTopic(
-            @PathVariable("tid") String topicId) {
-        return service.findWidgetsForTopic(topicId);
+    @DeleteMapping("/api/widgets/{wid}")
+    public int deleteWidget(@PathVariable("wid") String wid) {
+        try {
+            System.out.println("lads lads");
+            Integer widInt = Integer.valueOf(wid);
+            return service.deleteWidget(widInt);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
 }
