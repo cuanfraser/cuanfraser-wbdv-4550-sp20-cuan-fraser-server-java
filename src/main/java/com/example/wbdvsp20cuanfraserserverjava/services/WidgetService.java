@@ -30,13 +30,12 @@ public class WidgetService {
     }
 
     public int updateWidget(Integer wid, Widget updatedWidget) {
-        widgetRepository.deleteById(wid);
+        updatedWidget.setTopic(findWidgetById(wid).getTopic());
         widgetRepository.save(updatedWidget);
-        return 0;
+        return 1;
     }
 
     public int deleteWidget(Integer wid) {
-        System.out.println("deleting my dudes");
         widgetRepository.deleteById(wid);
         return 1;
     }

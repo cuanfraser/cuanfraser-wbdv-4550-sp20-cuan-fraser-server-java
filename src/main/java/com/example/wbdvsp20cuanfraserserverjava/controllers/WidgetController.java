@@ -49,7 +49,7 @@ public class WidgetController {
             Integer widInt = Integer.valueOf(wid);
             return service.updateWidget(widInt, updatedWidget);
         } catch (NumberFormatException e) {
-            return -1;
+            return 0;
         }
     }
 
@@ -71,11 +71,10 @@ public class WidgetController {
     @DeleteMapping("/api/widgets/{wid}")
     public int deleteWidget(@PathVariable("wid") String wid) {
         try {
-            System.out.println("lads lads");
             Integer widInt = Integer.valueOf(wid);
             return service.deleteWidget(widInt);
         } catch (NumberFormatException e) {
-            return -1;
+            return 0;
         }
     }
 

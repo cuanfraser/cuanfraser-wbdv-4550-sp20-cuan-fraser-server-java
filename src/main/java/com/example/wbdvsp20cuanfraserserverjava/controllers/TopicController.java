@@ -31,13 +31,23 @@ public class TopicController {
     }
 
     @PutMapping("/api/topics/{tid}")
-    public int updateTopic(@PathVariable("tid") Integer tid, @RequestBody Topic updatedTopic) {
-        return service.updateTopic(tid, updatedTopic);
+    public int updateTopic(@PathVariable("tid") String tid, @RequestBody Topic updatedTopic) {
+        try {
+            Integer tidInt = Integer.valueOf(tid);
+            return service.updateTopic(tidInt, updatedTopic);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     @DeleteMapping("/api/topics/{tid}")
-    public int deleteTopic(@PathVariable("tid") Integer tid) {
-        return service.deleteTopic(tid);
+    public int deleteTopic(@PathVariable("tid") String tid) {
+        try {
+            Integer tidInt = Integer.valueOf(tid);
+            return service.deleteTopic(tidInt);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     @GetMapping("/api/topics")
@@ -46,8 +56,13 @@ public class TopicController {
     }
 
     @GetMapping("/api/topics/{tid}")
-    public Topic findTopicById(@PathVariable("tid") Integer tid) {
-        return service.findTopicById(tid);
+    public Topic findTopicById(@PathVariable("tid") String tid) {
+        try {
+            Integer tidInt = Integer.valueOf(tid);
+            return service.findTopicById(tidInt);
+        } catch (NumberFormatException e) {
+            return new Topic();
+        }
     }
 
 }

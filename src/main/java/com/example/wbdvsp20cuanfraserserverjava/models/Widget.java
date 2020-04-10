@@ -11,11 +11,14 @@ public class Widget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne @JsonIgnore
+
+    @ManyToOne
+    @JsonIgnore
     private Topic topic;
+    
     private String name;
     private String type;
-    private int orderNum;
+    private int position;
     private String text;
     private String url;
     private int size;
@@ -25,13 +28,13 @@ public class Widget {
     private String style;
     private String value;
 
-    public Widget(Integer id, Topic topic, String name, String type, int orderNum, String text, String url, int size, int width,
+    public Widget(Integer id, Topic topic, String name, String type, int position, String text, String url, int size, int width,
             int height, String cssClass, String style, String value) {
         this.id = id;
         this.topic = topic;
         this.name = name;
         this.type = type;
-        this.orderNum = orderNum;
+        this.position = position;
         this.text = text;
         this.url = url;
         this.size = size;
@@ -99,11 +102,11 @@ public class Widget {
     }
 
     public int getOrder() {
-        return orderNum;
+        return position;
     }
 
-    public void setOrder(int order) {
-        this.orderNum = order;
+    public void setOrder(int position) {
+        this.position = position;
     }
 
     public String getText() {
@@ -130,11 +133,11 @@ public class Widget {
         return id;
     }
 
-    public String getTitle() {
+    public String getName() {
         return name;
     }
 
-    public void setTitle(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

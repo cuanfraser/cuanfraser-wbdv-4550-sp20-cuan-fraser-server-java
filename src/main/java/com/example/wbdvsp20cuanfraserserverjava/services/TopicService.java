@@ -22,9 +22,9 @@ public class TopicService {
     }
 
     public int updateTopic(Integer tid, Topic updatedTopic) {
-        topicRepository.deleteById(tid);
+        //updatedTopic.setLesson(findTopicById(tid).getLesson());
         topicRepository.save(updatedTopic);
-        return 0;
+        return 1;
     }
 
     public int deleteTopic(Integer tid) {
